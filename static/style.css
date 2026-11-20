@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+    color: #222;
+}
+
+header {
+    background: #172b4d;
+    color: white;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.live {
+    color: #65e6a5;
+    font-size: 13px;
+}
+
+main {
+    width: 88%;
+    margin: 35px auto;
+}
+
+.welcome {
+    margin-bottom: 25px;
+}
+
+.welcome h1 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.welcome p,
+.card p {
+    color: #777;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card,
+.camera-section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px #0000000d;
+}
+
+.card p {
+    margin-bottom: 15px;
+}
+
+.card h1 {
+    font-size: 42px;
+    color: #2474d2;
+}
+
+.card h2 {
+    font-size: 24px;
+    color: #169b63;
+    margin-bottom: 8px;
+}
+
+.card span {
+    color: #999;
+    font-size: 13px;
+}
+
+.camera-section h2 {
+    margin-bottom: 20px;
+}
+
+.camera-box {
+    position: relative;
+    min-height: 240px;
+    background: #111;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.camera-box img {
+    width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.feed-message {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.feed-message[hidden] {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #888;
+}
+
+@media (max-width: 650px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        width: 94%;
+    }
+}

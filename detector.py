@@ -1,8 +1,9 @@
 from ultralytics import YOLO 
 import cv2 
+
 model = YOLO("yolo26n.pt")
 cap = cv2.VideoCapture(0)
-window_name = "Smart people counter"
+window_name = "Smart Student Counter"
 
 try:
     if not cap.isOpened():
@@ -14,16 +15,27 @@ try:
             print("Camera not working properly!")
             break
 
+        # Detect and track only people.
         results = model.track(
             frame,
             persist=True,
-            tracker="bytetrack.yaml",
             classes=[0],
-            verbose=False,
+            conf=0.65,
+            iou=0.5,
+            tracker="bytetrack.yaml",
+            verbose=False
         )
+
         result = results[0]
+
+        # Count detected people.
         count = len(result.boxes)
-        output = result.plot()
+
+        # Draw boxes with confidence scores.
+        output = result.plot(
+            labels=True,
+            conf=True
+        )
         cv2.putText(
             output,
             f"People present: {count}",

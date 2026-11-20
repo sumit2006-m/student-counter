@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Student Counter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body data-count-url="{{ url_for('get_count') }}">
+    <header>
+        <h2>Smart Student Counter</h2>
+        <span class="live">● LIVE SYSTEM</span>
+    </header>
+
+    <main>
+        <section class="welcome">
+            <h1>Classroom Monitoring</h1>
+            <p>AI-powered real-time people detection</p>
+        </section>
+
+        <section class="stats">
+            <div class="card">
+                <p>People Present</p>
+                <h1 id="student-count">0</h1>
+                <span>Currently detected</span>
+            </div>
+            <div class="card">
+                <p>Camera Status</p>
+                <h2 id="camera-status" aria-live="polite">Connecting...</h2>
+                <span>Laptop webcam</span>
+            </div>
+        </section>
+
+        <section class="camera-section">
+            <h2>Live Camera Feed</h2>
+            <div class="camera-box">
+                <img id="camera-feed"
+                     src="{{ url_for('video_feed') }}"
+                     alt="Live camera feed">
+                <p id="feed-message" class="feed-message" role="status">
+                    Waiting for camera feed...
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>Smart Student Counter | AI &amp; Computer Vision Project</footer>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>

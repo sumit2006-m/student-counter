@@ -1,2 +1,3 @@
-﻿ultralytics
+Flask
+ultralytics
 opencv-python
